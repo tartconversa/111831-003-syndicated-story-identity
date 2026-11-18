@@ -1,0 +1,190 @@
+[
+  {
+    "event_id": "e-1",
+    "entity_type": "publication",
+    "entity_id": "pub-origin",
+    "kind": "published",
+    "recorded_at": "2026-11-01T08:00:00+00:00",
+    "recorded_by": "ingest-bot",
+    "valid_on": "2026-11-01",
+    "payload": {
+      "story_id": "story-1",
+      "source_id": "global-desk",
+      "version_id": "ver-original",
+      "license": "licensed",
+      "has_editorial_addition": false,
+      "addition_summary": "",
+      "raw_ref": "archive://2026/11/story-1/global-desk/original"
+    }
+  },
+  {
+    "event_id": "e-2",
+    "entity_type": "publication",
+    "entity_id": "pub-republish",
+    "kind": "published",
+    "recorded_at": "2026-11-02T09:00:00+00:00",
+    "recorded_by": "ingest-bot",
+    "valid_on": "2026-11-02",
+    "payload": {
+      "story_id": "story-1",
+      "source_id": "wire-copy-site",
+      "version_id": "ver-original",
+      "license": "unknown",
+      "has_editorial_addition": false,
+      "addition_summary": "",
+      "raw_ref": "archive://2026/11/story-1/wire-copy-site"
+    }
+  },
+  {
+    "event_id": "e-3",
+    "entity_type": "publication",
+    "entity_id": "pub-local",
+    "kind": "published",
+    "recorded_at": "2026-11-03T10:00:00+00:00",
+    "recorded_by": "ingest-bot",
+    "valid_on": "2026-11-03",
+    "payload": {
+      "story_id": "story-1",
+      "source_id": "regional-review",
+      "version_id": "ver-local-expanded",
+      "license": "fair-use",
+      "has_editorial_addition": true,
+      "addition_summary": "补充本地采访两段与背景解释",
+      "raw_ref": "archive://2026/11/story-1/regional-review/expanded"
+    }
+  },
+  {
+    "event_id": "e-4",
+    "entity_type": "publication",
+    "entity_id": "pub-independent",
+    "kind": "published",
+    "recorded_at": "2026-11-04T11:00:00+00:00",
+    "recorded_by": "ingest-bot",
+    "valid_on": "2026-11-04",
+    "payload": {
+      "story_id": "story-1",
+      "source_id": "independent-tribune",
+      "version_id": "ver-separate-write",
+      "license": "restricted",
+      "has_editorial_addition": true,
+      "addition_summary": "独立成稿，仅事实层面重合",
+      "raw_ref": "archive://2026/11/story-1/independent-tribune"
+    }
+  },
+  {
+    "event_id": "e-5",
+    "entity_type": "relation",
+    "entity_id": "rel-1",
+    "kind": "asserted",
+    "recorded_at": "2026-11-02T12:00:00+00:00",
+    "recorded_by": "similarity-job",
+    "valid_on": null,
+    "payload": {
+      "story_id": "story-1",
+      "parent_publication_id": "pub-origin",
+      "child_publication_id": "pub-republish",
+      "kind": "republish",
+      "evidence": [
+        {
+          "evidence_id": "ev-1",
+          "kind": "text-similarity",
+          "detail": "正文 98% 重合，标题一致",
+          "recorded_by": "similarity-job",
+          "recorded_at": "2026-11-02T12:00:00+00:00",
+          "similarity": 0.98
+        }
+      ]
+    }
+  },
+  {
+    "event_id": "e-6",
+    "entity_type": "relation",
+    "entity_id": "rel-1",
+    "kind": "confirmed",
+    "recorded_at": "2026-11-03T09:30:00+00:00",
+    "recorded_by": "analyst-chen",
+    "valid_on": null,
+    "payload": {
+      "rationale": "页面保留通讯社署名与原链接，确认转载",
+      "evidence": [
+        {
+          "evidence_id": "ev-2",
+          "kind": "byline",
+          "detail": "页脚标注 source: global-desk wire",
+          "recorded_by": "analyst-chen",
+          "recorded_at": "2026-11-03T09:30:00+00:00"
+        }
+      ]
+    }
+  },
+  {
+    "event_id": "e-7",
+    "entity_type": "relation",
+    "entity_id": "rel-2",
+    "kind": "asserted",
+    "recorded_at": "2026-11-03T12:00:00+00:00",
+    "recorded_by": "similarity-job",
+    "valid_on": null,
+    "payload": {
+      "story_id": "story-1",
+      "parent_publication_id": "pub-origin",
+      "child_publication_id": "pub-local",
+      "kind": "derivative",
+      "evidence": [
+        {
+          "evidence_id": "ev-3",
+          "kind": "text-similarity",
+          "detail": "共享核心段落 61%，但存在新增段落",
+          "recorded_by": "similarity-job",
+          "recorded_at": "2026-11-03T12:00:00+00:00",
+          "similarity": 0.61
+        }
+      ]
+    }
+  },
+  {
+    "event_id": "e-8",
+    "entity_type": "relation",
+    "entity_id": "rel-2",
+    "kind": "confirmed",
+    "recorded_at": "2026-11-04T14:00:00+00:00",
+    "recorded_by": "analyst-chen",
+    "valid_on": null,
+    "payload": {"rationale": "确认以通讯社稿为底本，但本地增补属实，关系确认而增补仍计入独立报道"}
+  },
+  {
+    "event_id": "e-9",
+    "entity_type": "relation",
+    "entity_id": "rel-3",
+    "kind": "asserted",
+    "recorded_at": "2026-11-04T15:00:00+00:00",
+    "recorded_by": "similarity-job",
+    "valid_on": null,
+    "payload": {
+      "story_id": "story-1",
+      "parent_publication_id": "pub-origin",
+      "child_publication_id": "pub-independent",
+      "kind": "republish",
+      "evidence": [
+        {
+          "evidence_id": "ev-4",
+          "kind": "text-similarity",
+          "detail": "仅事实陈述重合 54%，措辞与结构不同",
+          "recorded_by": "similarity-job",
+          "recorded_at": "2026-11-04T15:00:00+00:00",
+          "similarity": 0.54
+        }
+      ]
+    }
+  },
+  {
+    "event_id": "e-10",
+    "entity_type": "relation",
+    "entity_id": "rel-3",
+    "kind": "rejected",
+    "recorded_at": "2026-11-05T10:00:00+00:00",
+    "recorded_by": "analyst-chen",
+    "valid_on": null,
+    "payload": {"rationale": "无通讯社署名、无原文链接，采访对象与引语均不同，判定为独立报道"}
+  }
+]
